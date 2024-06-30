@@ -1,6 +1,5 @@
 ﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using StrLib;
 using System.Net;
 using System.Text;
 using System.Web;
@@ -162,7 +161,7 @@ namespace 百度文字识别
             catch (Exception exception)
             {
                 Console.WriteLine(exception);
-                labelWord.Text = "出现异常，详情是：" + System.Environment.NewLine + exception.GetExceptionMsg();
+                labelWord.Text = "出现异常，详情是：" + System.Environment.NewLine + exception.Message + System.Environment.NewLine + DateTime.Now;
                 buttonCopyWords.Enabled = true;
             }
         }
@@ -177,7 +176,7 @@ namespace 百度文字识别
         /// </summary>
         private void SetClipboard()
         {
-            if (richTextBoxImgText.Text.IsValid())
+            if (!string.IsNullOrWhiteSpace(richTextBoxImgText.Text))
             {
                 JObject obj = JObject.Parse(richTextBoxImgText.Text);
                 var item = FindFistKeyItem(obj, "words_result").Value ?? JsonConvert.SerializeObject(obj);
@@ -198,7 +197,7 @@ namespace 百度文字识别
 
         public void SetDefaultSettings()
         {
-            if (Settings.Default.ApiKey.IsInvalid())
+            if (!string.IsNullOrWhiteSpace(Settings.Default.ApiKey))
             {
                 Settings.Default.AppId = "";
                 Settings.Default.ApiKey = "";

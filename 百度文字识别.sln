@@ -5,8 +5,6 @@ VisualStudioVersion = 17.7.34031.279
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "百度文字识别", "百度文字识别\百度文字识别.csproj", "{E056C40F-DC3E-4056-8B8E-7A836644B487}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StrLib", "..\..\Libs\StrLib\StrLib\StrLib.csproj", "{F4FD2FBD-340E-4A20-A3D9-BF62DB57CD3D}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,10 +15,6 @@ Global
 		{E056C40F-DC3E-4056-8B8E-7A836644B487}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E056C40F-DC3E-4056-8B8E-7A836644B487}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E056C40F-DC3E-4056-8B8E-7A836644B487}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F4FD2FBD-340E-4A20-A3D9-BF62DB57CD3D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F4FD2FBD-340E-4A20-A3D9-BF62DB57CD3D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F4FD2FBD-340E-4A20-A3D9-BF62DB57CD3D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F4FD2FBD-340E-4A20-A3D9-BF62DB57CD3D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
