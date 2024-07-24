@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json.Linq;
 using System.Collections.Generic;
 
-namespace 百度文字识别
+namespace 百度文字识别.Entity
 {
     /// <summary>
     /// Json元素的内容类

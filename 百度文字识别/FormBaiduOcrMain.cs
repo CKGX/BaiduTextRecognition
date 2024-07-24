@@ -3,6 +3,7 @@ using Newtonsoft.Json.Linq;
 using System.Net;
 using System.Text;
 using System.Web;
+using 百度文字识别.Entity;
 using 百度文字识别.Properties;
 
 namespace 百度文字识别
@@ -27,6 +28,7 @@ namespace 百度文字识别
 
         private void FormBaiduOcrMain_Load(object sender, EventArgs e)
         {
+            SetSettings();
         }
 
         private void PictureBoxScroll()
@@ -147,7 +149,7 @@ namespace 百度文字识别
 
         private void buttonGetImgText_Click(object sender, EventArgs e)
         {
-            SetDefaultSettings();
+            SetSettings();
             buttonCopyWords.Enabled = false;
             try
             {
@@ -190,19 +192,41 @@ namespace 百度文字识别
 
         private void 设置百度ApiToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //var form = new CkFormSimpleSettings(Settings.Default);
-            var form = new FormSettingsToPropertyGrid(Settings.Default);
-            form.ShowDialog();
+            ShowSettingForm();
         }
 
-        public void SetDefaultSettings()
+        /// <summary>
+        /// 设置
+        /// </summary>
+        public void SetSettings()
         {
-            if (!string.IsNullOrWhiteSpace(Settings.Default.ApiKey))
+            if (string.IsNullOrWhiteSpace(Settings.Default.ApiKey))
             {
                 Settings.Default.AppId = "";
                 Settings.Default.ApiKey = "";
                 Settings.Default.SecretKey = "";
+                MessageBox.Show("请输入百度相关文字识别相关key");
+                ShowSettingForm();
             }
+            if (string.IsNullOrWhiteSpace(Settings.Default.AppId) || string.IsNullOrWhiteSpace(Settings.Default.ApiKey) || string.IsNullOrWhiteSpace(Settings.Default.SecretKey))
+            {
+                SetSettings();
+            }
+        }
+
+        /// <summary>
+        /// 显示设置窗体
+        /// </summary>
+        public void ShowSettingForm()
+        {
+            var form = new FormSettingsToPropertyGrid(Settings.Default);
+            form.ShowDialog();
+        }
+
+        private void buttonClear_Click(object sender, EventArgs e)
+        {
+            richTextBoxImgText.Text = "";
+            labelWord.Text = "";
         }
     }
 }
