@@ -37,12 +37,12 @@ namespace 百度文字识别
             pictureBoxShow = new PictureBox();
             splitContainer2 = new SplitContainer();
             richTextBoxImgText = new RichTextBox();
+            buttonClear = new Button();
             buttonCopyWords = new Button();
             labelWord = new Label();
             buttonGetImgText = new Button();
             menuStrip1 = new MenuStrip();
             设置百度ApiToolStripMenuItem = new ToolStripMenuItem();
-            buttonClear = new Button();
             toolStripContainer1.ContentPanel.SuspendLayout();
             toolStripContainer1.TopToolStripPanel.SuspendLayout();
             toolStripContainer1.SuspendLayout();
@@ -65,13 +65,13 @@ namespace 百度文字识别
             // toolStripContainer1.ContentPanel
             // 
             toolStripContainer1.ContentPanel.Controls.Add(splitContainer1);
-            toolStripContainer1.ContentPanel.Margin = new Padding(4, 4, 4, 4);
-            toolStripContainer1.ContentPanel.Size = new Size(933, 613);
+            toolStripContainer1.ContentPanel.Margin = new Padding(5, 5, 5, 5);
+            toolStripContainer1.ContentPanel.Size = new Size(1200, 723);
             toolStripContainer1.Dock = DockStyle.Fill;
             toolStripContainer1.Location = new Point(0, 0);
-            toolStripContainer1.Margin = new Padding(4, 4, 4, 4);
+            toolStripContainer1.Margin = new Padding(5, 5, 5, 5);
             toolStripContainer1.Name = "toolStripContainer1";
-            toolStripContainer1.Size = new Size(933, 638);
+            toolStripContainer1.Size = new Size(1200, 751);
             toolStripContainer1.TabIndex = 0;
             toolStripContainer1.Text = "toolStripContainer1";
             // 
@@ -83,7 +83,7 @@ namespace 百度文字识别
             // 
             splitContainer1.Dock = DockStyle.Fill;
             splitContainer1.Location = new Point(0, 0);
-            splitContainer1.Margin = new Padding(4, 4, 4, 4);
+            splitContainer1.Margin = new Padding(5, 5, 5, 5);
             splitContainer1.Name = "splitContainer1";
             // 
             // splitContainer1.Panel1
@@ -96,29 +96,30 @@ namespace 百度文字识别
             // splitContainer1.Panel2
             // 
             splitContainer1.Panel2.Controls.Add(splitContainer2);
-            splitContainer1.Size = new Size(933, 613);
-            splitContainer1.SplitterDistance = 571;
-            splitContainer1.SplitterWidth = 5;
+            splitContainer1.Size = new Size(1200, 723);
+            splitContainer1.SplitterDistance = 734;
+            splitContainer1.SplitterWidth = 6;
             splitContainer1.TabIndex = 0;
             // 
             // contextMenuStripImgPaste
             // 
+            contextMenuStripImgPaste.ImageScalingSize = new Size(20, 20);
             contextMenuStripImgPaste.Items.AddRange(new ToolStripItem[] { 粘贴ToolStripMenuItem });
             contextMenuStripImgPaste.Name = "contextMenuStripImgPaste";
-            contextMenuStripImgPaste.Size = new Size(125, 26);
+            contextMenuStripImgPaste.Size = new Size(139, 28);
             // 
             // 粘贴ToolStripMenuItem
             // 
             粘贴ToolStripMenuItem.Name = "粘贴ToolStripMenuItem";
-            粘贴ToolStripMenuItem.Size = new Size(124, 22);
+            粘贴ToolStripMenuItem.Size = new Size(138, 24);
             粘贴ToolStripMenuItem.Text = "图像粘贴";
             粘贴ToolStripMenuItem.Click += 粘贴ToolStripMenuItem_Click;
             // 
             // pictureBoxShow
             // 
             pictureBoxShow.ContextMenuStrip = contextMenuStripImgPaste;
-            pictureBoxShow.Location = new Point(14, 4);
-            pictureBoxShow.Margin = new Padding(4, 4, 4, 4);
+            pictureBoxShow.Location = new Point(18, 5);
+            pictureBoxShow.Margin = new Padding(5, 5, 5, 5);
             pictureBoxShow.Name = "pictureBoxShow";
             pictureBoxShow.Size = new Size(400, 400);
             pictureBoxShow.SizeMode = PictureBoxSizeMode.AutoSize;
@@ -129,7 +130,7 @@ namespace 百度文字识别
             // 
             splitContainer2.Dock = DockStyle.Fill;
             splitContainer2.Location = new Point(0, 0);
-            splitContainer2.Margin = new Padding(4, 4, 4, 4);
+            splitContainer2.Margin = new Padding(5, 5, 5, 5);
             splitContainer2.Name = "splitContainer2";
             splitContainer2.Orientation = Orientation.Horizontal;
             // 
@@ -143,29 +144,41 @@ namespace 百度文字识别
             splitContainer2.Panel2.Controls.Add(buttonCopyWords);
             splitContainer2.Panel2.Controls.Add(labelWord);
             splitContainer2.Panel2.Controls.Add(buttonGetImgText);
-            splitContainer2.Size = new Size(357, 613);
-            splitContainer2.SplitterDistance = 462;
-            splitContainer2.SplitterWidth = 6;
+            splitContainer2.Size = new Size(460, 723);
+            splitContainer2.SplitterDistance = 544;
+            splitContainer2.SplitterWidth = 7;
             splitContainer2.TabIndex = 0;
             // 
             // richTextBoxImgText
             // 
             richTextBoxImgText.Dock = DockStyle.Fill;
             richTextBoxImgText.Location = new Point(0, 0);
-            richTextBoxImgText.Margin = new Padding(4, 4, 4, 4);
+            richTextBoxImgText.Margin = new Padding(5, 5, 5, 5);
             richTextBoxImgText.Name = "richTextBoxImgText";
             richTextBoxImgText.ReadOnly = true;
-            richTextBoxImgText.Size = new Size(357, 462);
+            richTextBoxImgText.Size = new Size(460, 544);
             richTextBoxImgText.TabIndex = 0;
             richTextBoxImgText.Text = "";
+            // 
+            // buttonClear
+            // 
+            buttonClear.Enabled = false;
+            buttonClear.Location = new Point(318, 81);
+            buttonClear.Margin = new Padding(5, 5, 5, 5);
+            buttonClear.Name = "buttonClear";
+            buttonClear.Size = new Size(125, 48);
+            buttonClear.TabIndex = 3;
+            buttonClear.Text = "清除";
+            buttonClear.UseVisualStyleBackColor = true;
+            buttonClear.Click += buttonClear_Click;
             // 
             // buttonCopyWords
             // 
             buttonCopyWords.Enabled = false;
-            buttonCopyWords.Location = new Point(132, 69);
-            buttonCopyWords.Margin = new Padding(4, 4, 4, 4);
+            buttonCopyWords.Location = new Point(170, 81);
+            buttonCopyWords.Margin = new Padding(5, 5, 5, 5);
             buttonCopyWords.Name = "buttonCopyWords";
-            buttonCopyWords.Size = new Size(97, 41);
+            buttonCopyWords.Size = new Size(125, 48);
             buttonCopyWords.TabIndex = 2;
             buttonCopyWords.Text = "复制图片内容";
             buttonCopyWords.UseVisualStyleBackColor = true;
@@ -175,18 +188,18 @@ namespace 百度文字识别
             // 
             labelWord.AutoSize = true;
             labelWord.ForeColor = Color.Red;
-            labelWord.Location = new Point(37, 21);
-            labelWord.Margin = new Padding(4, 0, 4, 0);
+            labelWord.Location = new Point(48, 25);
+            labelWord.Margin = new Padding(5, 0, 5, 0);
             labelWord.Name = "labelWord";
-            labelWord.Size = new Size(0, 17);
+            labelWord.Size = new Size(0, 20);
             labelWord.TabIndex = 1;
             // 
             // buttonGetImgText
             // 
-            buttonGetImgText.Location = new Point(13, 69);
-            buttonGetImgText.Margin = new Padding(4, 4, 4, 4);
+            buttonGetImgText.Location = new Point(17, 81);
+            buttonGetImgText.Margin = new Padding(5, 5, 5, 5);
             buttonGetImgText.Name = "buttonGetImgText";
-            buttonGetImgText.Size = new Size(97, 41);
+            buttonGetImgText.Size = new Size(125, 48);
             buttonGetImgText.TabIndex = 0;
             buttonGetImgText.Text = "获取图片内容";
             buttonGetImgText.UseVisualStyleBackColor = true;
@@ -195,40 +208,29 @@ namespace 百度文字识别
             // menuStrip1
             // 
             menuStrip1.Dock = DockStyle.None;
+            menuStrip1.ImageScalingSize = new Size(20, 20);
             menuStrip1.Items.AddRange(new ToolStripItem[] { 设置百度ApiToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(933, 25);
+            menuStrip1.Size = new Size(1200, 28);
             menuStrip1.TabIndex = 0;
             menuStrip1.Text = "menuStrip1";
             // 
             // 设置百度ApiToolStripMenuItem
             // 
             设置百度ApiToolStripMenuItem.Name = "设置百度ApiToolStripMenuItem";
-            设置百度ApiToolStripMenuItem.Size = new Size(87, 21);
+            设置百度ApiToolStripMenuItem.Size = new Size(107, 24);
             设置百度ApiToolStripMenuItem.Text = "设置百度API";
             设置百度ApiToolStripMenuItem.Click += 设置百度ApiToolStripMenuItem_Click;
             // 
-            // buttonClear
-            // 
-            buttonClear.Enabled = false;
-            buttonClear.Location = new Point(247, 69);
-            buttonClear.Margin = new Padding(4);
-            buttonClear.Name = "buttonClear";
-            buttonClear.Size = new Size(97, 41);
-            buttonClear.TabIndex = 3;
-            buttonClear.Text = "清除";
-            buttonClear.UseVisualStyleBackColor = true;
-            buttonClear.Click += buttonClear_Click;
-            // 
             // FormBaiduOcrMain
             // 
-            AutoScaleDimensions = new SizeF(7F, 17F);
+            AutoScaleDimensions = new SizeF(9F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(933, 638);
+            ClientSize = new Size(1200, 751);
             ContextMenuStrip = contextMenuStripImgPaste;
             Controls.Add(toolStripContainer1);
-            Margin = new Padding(4, 4, 4, 4);
+            Margin = new Padding(5, 5, 5, 5);
             Name = "FormBaiduOcrMain";
             Text = "百度文字识别";
             Load += FormBaiduOcrMain_Load;
