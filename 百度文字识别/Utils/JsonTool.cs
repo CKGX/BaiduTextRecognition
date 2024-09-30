@@ -20,7 +20,7 @@ namespace 百度文字识别.Utils
         {
             JsonItem jsonItem = new JsonItem();
             //检查当前对象中是否存在Key
-            foreach (KeyValuePair<string, JToken> keyValuePair in jObject)
+            foreach (KeyValuePair<string, JToken?> keyValuePair in jObject)
             {
                 string otherKey = keyValuePair.Key;
 
@@ -35,14 +35,23 @@ namespace 百度文字识别.Utils
                 }
                 else
                 {
-                    JToken otherJToken = jObject[otherKey];
+                    JToken? otherJToken = jObject[otherKey];
                     if (otherJToken != null && otherJToken.Any())
                     {
                         var otherJTokenType = otherJToken.Type;
-                        JObject newJObject;
+                        JObject? newJObject;
                         if (otherJTokenType == JTokenType.Array)
                         {
-                            newJObject = (JObject)otherJToken[0];
+                            var arrayObj = otherJToken[0];
+                            if (arrayObj != null)
+                            {
+                                newJObject = (JObject)arrayObj;
+                            }
+                            else
+                            {
+                                // 不知道数据出问题再说
+                                throw new ArgumentNullException("需要处理此处异常");
+                            }
                         }
                         else
                         {

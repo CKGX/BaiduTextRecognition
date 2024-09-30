@@ -21,7 +21,7 @@ namespace 百度文字识别.Entity
         /// <summary>
         /// 元素信息
         /// </summary>
-        public KeyValuePair<string, JToken> Item { get; set; }
+        public KeyValuePair<string, JToken?> Item { get; set; }
 
         /// <summary>
         /// Key
@@ -31,11 +31,11 @@ namespace 百度文字识别.Entity
         /// <summary>
         /// Value
         /// </summary>
-        public JToken Value { get; set; }
+        public JToken? Value { get; set; }
 
         /// <summary>
         /// Value
         /// </summary>
-        public string ValueStr => Value.ToString();
+        public string ValueStr => (Value ?? "").ToString() ;
     }
 }
