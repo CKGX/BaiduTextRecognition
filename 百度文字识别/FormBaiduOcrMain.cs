@@ -29,7 +29,7 @@ namespace 百度文字识别
 
         private void FormBaiduOcrMain_Load(object sender, EventArgs e)
         {
-            SetSettings();
+            CheckSettings();
         }
 
         private void PictureBoxScroll()
@@ -38,15 +38,10 @@ namespace 百度文字识别
             pictureBoxShow.Width = splitContainer1.Panel1.Width;
         }
 
-        
-
-
-
-        
 
         private void buttonGetImgText_Click(object sender, EventArgs e)
         {
-            SetSettings();
+            CheckSettings();
             buttonCopyWords.Enabled = false;
             try
             {
@@ -95,19 +90,15 @@ namespace 百度文字识别
         /// <summary>
         /// 设置
         /// </summary>
-        public void SetSettings()
+        public void CheckSettings()
         {
-            if (string.IsNullOrWhiteSpace(Settings.Default.ApiKey))
+            if (string.IsNullOrWhiteSpace(Settings.Default.AppId) || string.IsNullOrWhiteSpace(Settings.Default.ApiKey) || string.IsNullOrWhiteSpace(Settings.Default.SecretKey))
             {
                 Settings.Default.AppId = "";
                 Settings.Default.ApiKey = "";
                 Settings.Default.SecretKey = "";
                 MessageBox.Show("请输入百度相关文字识别相关key");
                 ShowSettingForm();
-            }
-            if (string.IsNullOrWhiteSpace(Settings.Default.AppId) || string.IsNullOrWhiteSpace(Settings.Default.ApiKey) || string.IsNullOrWhiteSpace(Settings.Default.SecretKey))
-            {
-                SetSettings();
             }
         }
 
