@@ -49,7 +49,7 @@ namespace 百度文字识别
                 pictureBoxShow.Image.Save(memoryStream, System.Drawing.Imaging.ImageFormat.Jpeg);
                 var imgStream = memoryStream.ToArray();
                 var obj = OcrApi.OcrToCurrent(imgStream);
-                richTextBoxImgText.Text = obj.ToString();
+                richTextBoxImgText.Text = "详情：" + Environment.NewLine+obj.ToString();
                 SetClipboard();
             }
             catch (Exception exception)
