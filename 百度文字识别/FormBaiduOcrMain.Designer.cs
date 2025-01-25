@@ -43,6 +43,7 @@ namespace 百度文字识别
             buttonGetImgText = new Button();
             menuStrip1 = new MenuStrip();
             设置百度ApiToolStripMenuItem = new ToolStripMenuItem();
+            buttonPasteImage = new Button();
             toolStripContainer1.ContentPanel.SuspendLayout();
             toolStripContainer1.TopToolStripPanel.SuspendLayout();
             toolStripContainer1.SuspendLayout();
@@ -65,11 +66,11 @@ namespace 百度文字识别
             // toolStripContainer1.ContentPanel
             // 
             toolStripContainer1.ContentPanel.Controls.Add(splitContainer1);
-            toolStripContainer1.ContentPanel.Margin = new Padding(5, 5, 5, 5);
+            toolStripContainer1.ContentPanel.Margin = new Padding(5);
             toolStripContainer1.ContentPanel.Size = new Size(1200, 723);
             toolStripContainer1.Dock = DockStyle.Fill;
             toolStripContainer1.Location = new Point(0, 0);
-            toolStripContainer1.Margin = new Padding(5, 5, 5, 5);
+            toolStripContainer1.Margin = new Padding(5);
             toolStripContainer1.Name = "toolStripContainer1";
             toolStripContainer1.Size = new Size(1200, 751);
             toolStripContainer1.TabIndex = 0;
@@ -83,7 +84,7 @@ namespace 百度文字识别
             // 
             splitContainer1.Dock = DockStyle.Fill;
             splitContainer1.Location = new Point(0, 0);
-            splitContainer1.Margin = new Padding(5, 5, 5, 5);
+            splitContainer1.Margin = new Padding(5);
             splitContainer1.Name = "splitContainer1";
             // 
             // splitContainer1.Panel1
@@ -119,7 +120,7 @@ namespace 百度文字识别
             // 
             pictureBoxShow.ContextMenuStrip = contextMenuStripImgPaste;
             pictureBoxShow.Location = new Point(18, 5);
-            pictureBoxShow.Margin = new Padding(5, 5, 5, 5);
+            pictureBoxShow.Margin = new Padding(5);
             pictureBoxShow.Name = "pictureBoxShow";
             pictureBoxShow.Size = new Size(400, 400);
             pictureBoxShow.SizeMode = PictureBoxSizeMode.AutoSize;
@@ -130,7 +131,7 @@ namespace 百度文字识别
             // 
             splitContainer2.Dock = DockStyle.Fill;
             splitContainer2.Location = new Point(0, 0);
-            splitContainer2.Margin = new Padding(5, 5, 5, 5);
+            splitContainer2.Margin = new Padding(5);
             splitContainer2.Name = "splitContainer2";
             splitContainer2.Orientation = Orientation.Horizontal;
             // 
@@ -140,6 +141,7 @@ namespace 百度文字识别
             // 
             // splitContainer2.Panel2
             // 
+            splitContainer2.Panel2.Controls.Add(buttonPasteImage);
             splitContainer2.Panel2.Controls.Add(buttonClear);
             splitContainer2.Panel2.Controls.Add(buttonCopyWords);
             splitContainer2.Panel2.Controls.Add(labelWord);
@@ -153,7 +155,7 @@ namespace 百度文字识别
             // 
             richTextBoxImgText.Dock = DockStyle.Fill;
             richTextBoxImgText.Location = new Point(0, 0);
-            richTextBoxImgText.Margin = new Padding(5, 5, 5, 5);
+            richTextBoxImgText.Margin = new Padding(5);
             richTextBoxImgText.Name = "richTextBoxImgText";
             richTextBoxImgText.ReadOnly = true;
             richTextBoxImgText.Size = new Size(460, 544);
@@ -163,8 +165,8 @@ namespace 百度文字识别
             // buttonClear
             // 
             buttonClear.Enabled = false;
-            buttonClear.Location = new Point(318, 81);
-            buttonClear.Margin = new Padding(5, 5, 5, 5);
+            buttonClear.Location = new Point(318, 98);
+            buttonClear.Margin = new Padding(5);
             buttonClear.Name = "buttonClear";
             buttonClear.Size = new Size(125, 48);
             buttonClear.TabIndex = 3;
@@ -175,8 +177,8 @@ namespace 百度文字识别
             // buttonCopyWords
             // 
             buttonCopyWords.Enabled = false;
-            buttonCopyWords.Location = new Point(170, 81);
-            buttonCopyWords.Margin = new Padding(5, 5, 5, 5);
+            buttonCopyWords.Location = new Point(170, 98);
+            buttonCopyWords.Margin = new Padding(5);
             buttonCopyWords.Name = "buttonCopyWords";
             buttonCopyWords.Size = new Size(125, 48);
             buttonCopyWords.TabIndex = 2;
@@ -196,8 +198,8 @@ namespace 百度文字识别
             // 
             // buttonGetImgText
             // 
-            buttonGetImgText.Location = new Point(17, 81);
-            buttonGetImgText.Margin = new Padding(5, 5, 5, 5);
+            buttonGetImgText.Location = new Point(17, 98);
+            buttonGetImgText.Margin = new Padding(5);
             buttonGetImgText.Name = "buttonGetImgText";
             buttonGetImgText.Size = new Size(125, 48);
             buttonGetImgText.TabIndex = 0;
@@ -223,6 +225,17 @@ namespace 百度文字识别
             设置百度ApiToolStripMenuItem.Text = "设置百度API";
             设置百度ApiToolStripMenuItem.Click += 设置百度ApiToolStripMenuItem_Click;
             // 
+            // buttonPasteImage
+            // 
+            buttonPasteImage.Location = new Point(17, 25);
+            buttonPasteImage.Margin = new Padding(5);
+            buttonPasteImage.Name = "buttonPasteImage";
+            buttonPasteImage.Size = new Size(125, 48);
+            buttonPasteImage.TabIndex = 4;
+            buttonPasteImage.Text = "粘贴剪切板图像";
+            buttonPasteImage.UseVisualStyleBackColor = true;
+            buttonPasteImage.Click += buttonPasteImage_Click;
+            // 
             // FormBaiduOcrMain
             // 
             AutoScaleDimensions = new SizeF(9F, 20F);
@@ -230,7 +243,7 @@ namespace 百度文字识别
             ClientSize = new Size(1200, 751);
             ContextMenuStrip = contextMenuStripImgPaste;
             Controls.Add(toolStripContainer1);
-            Margin = new Padding(5, 5, 5, 5);
+            Margin = new Padding(5);
             Name = "FormBaiduOcrMain";
             Text = "百度文字识别";
             Load += FormBaiduOcrMain_Load;
@@ -271,6 +284,7 @@ namespace 百度文字识别
         private System.Windows.Forms.Label labelWord;
         private System.Windows.Forms.Button buttonCopyWords;
         private Button buttonClear;
+        private Button buttonPasteImage;
     }
 }
 

@@ -18,6 +18,14 @@ namespace 百度文字识别
 
         private void 粘贴ToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            pasteImage();
+        }
+
+        /// <summary>
+        /// 粘贴图像
+        /// </summary>
+        private void pasteImage()
+        {
             pictureBoxShow.Image = Clipboard.GetImage();
             buttonGetImgText.Focus();
         }
@@ -49,7 +57,7 @@ namespace 百度文字识别
                 pictureBoxShow.Image.Save(memoryStream, System.Drawing.Imaging.ImageFormat.Jpeg);
                 var imgStream = memoryStream.ToArray();
                 var obj = OcrApi.OcrToCurrent(imgStream);
-                richTextBoxImgText.Text = "详情：" + Environment.NewLine+obj.ToString() + Environment.NewLine;
+                richTextBoxImgText.Text = "详情：" + Environment.NewLine + obj.ToString() + Environment.NewLine;
                 SetClipboard();
             }
             catch (Exception exception)
@@ -115,6 +123,11 @@ namespace 百度文字识别
         {
             richTextBoxImgText.Text = "";
             labelWord.Text = "";
+        }
+
+        private void buttonPasteImage_Click(object sender, EventArgs e)
+        {
+            pasteImage();
         }
     }
 }
