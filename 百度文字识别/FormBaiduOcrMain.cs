@@ -26,7 +26,13 @@ namespace 百度文字识别
         /// </summary>
         private void pasteImage()
         {
-            pictureBoxShow.Image = Clipboard.GetImage();
+            Image? image = Clipboard.GetImage();
+            if (image == null)
+            {
+                MessageBox.Show("图片无内容");
+                return;
+            }
+            pictureBoxShow.Image = image;
             buttonGetImgText.Focus();
         }
 
