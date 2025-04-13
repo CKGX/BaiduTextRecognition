@@ -63,13 +63,13 @@ namespace 百度文字识别
                 pictureBoxShow.Image.Save(memoryStream, System.Drawing.Imaging.ImageFormat.Jpeg);
                 var imgStream = memoryStream.ToArray();
                 var obj = OcrApi.OcrToCurrent(imgStream);
-                richTextBoxImgText.Text = "详情：" + Environment.NewLine + obj.ToString() + Environment.NewLine;
+                richTextBoxImgText.Text = $"详情：{Environment.NewLine}{obj}{Environment.NewLine}";
                 SetClipboard();
             }
             catch (Exception exception)
             {
                 Console.WriteLine(exception);
-                labelWord.Text = "出现异常，详情是：" + System.Environment.NewLine + exception.Message + System.Environment.NewLine + DateTime.Now;
+                labelWord.Text = $"出现异常，详情是：{System.Environment.NewLine}{exception.Message}{System.Environment.NewLine}{DateTime.Now}";
                 buttonCopyWords.Enabled = true;
             }
         }
@@ -91,7 +91,7 @@ namespace 百度文字识别
 
                 string text = item.ToString();
                 Clipboard.SetText(text);
-                labelWord.Text = "提签的内容已经复制到剪切板" + System.Environment.NewLine + DateTime.Now;
+                labelWord.Text = $"提签的内容已经复制到剪切板{System.Environment.NewLine}{DateTime.Now}";
                 buttonCopyWords.Enabled = true;
             }
         }
